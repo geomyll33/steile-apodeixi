@@ -1,6 +1,6 @@
-const CACHE = 'fuelpass-v5';
+const CACHE = 'apodeixi-v1';
 const ASSETS = [
-  './', 'index.html', 'manifest.webmanifest', 'guide.html', 'Fuelpass-Odigos.pdf',
+  './', 'index.html', 'manifest.webmanifest', 'guide.html', 'Odigos.pdf',
   'icons/icon-180.png', 'icons/icon-192.png', 'icons/icon-512.png',
   'vendor/jspdf.umd.min.js', 'vendor/pdf.min.js', 'vendor/pdf.worker.min.js'
 ];

@@ -1,6 +1,6 @@
 {
-  "name": "Fuelpass",
-  "short_name": "Fuelpass",
+  "name": "Στείλε Απόδειξη",
+  "short_name": "Απόδειξη",
   "description": "Συμπλήρωση μηνιαίου εντύπου εξόδων από πρότυπο, με απόδειξη και αποστολή με email",
   "start_url": "./",
   "scope": "./",

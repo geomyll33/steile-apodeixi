@@ -1,4 +1,4 @@
 # Local files that are never committed
 private/
 *.pdf
-!Fuelpass-Odigos.pdf
+!Odigos.pdf

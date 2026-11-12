@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Fuelpass</title>
+<title>Στείλε Απόδειξη</title>
 <meta name="description" content="Συμπλήρωση μηνιαίου εντύπου εξόδων από πρότυπο, με απόδειξη και αποστολή με email">
 <meta name="theme-color" content="#0b5fa5">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/icon-180.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Fuelpass">
+<meta name="apple-mobile-web-app-title" content="Στείλε Απόδειξη">
 <style>
   :root {
     --bg: #f3f5f8; --card: #fff; --text: #1b2430; --muted: #5d6b7a;
@@ -93,7 +93,7 @@
 <body>
 <header>
   <button id="btnHelp" aria-label="Οδηγός χρήσης">❓ Βοήθεια</button>
-  <h1>Fuelpass</h1>
+  <h1>Στείλε Απόδειξη</h1>
   <p>Κάρτα καυσίμων / ΜΜΜ <span id="appVersion" style="opacity:.7"></span></p>
 </header>
 
@@ -185,10 +185,10 @@
   </section>
 
   <p class="note" style="text-align:center;margin:18px 4px 8px">
-    🔒 Το Fuelpass είναι ανεξάρτητο εργαλείο ανοιχτού κώδικα και δεν συνδέεται με καμία εταιρεία ή υπηρεσία.
+    🔒 Το «Στείλε Απόδειξη» είναι ανεξάρτητο εργαλείο ανοιχτού κώδικα και δεν συνδέεται με καμία εταιρεία ή υπηρεσία.
     Δεν ζητά κωδικούς και δεν έχει server: πρότυπο, στοιχεία, υπογραφή και αποδείξεις μένουν μόνο σε αυτή τη συσκευή
     και φεύγουν μόνο με το email που στέλνετε εσείς.
-    <a href="https://github.com/geomyll33/Fuelpass" rel="noopener">Κώδικας</a>
+    <a href="https://github.com/geomyll33/steile-apodeixi" rel="noopener">Κώδικας</a>
   </p>
 </main>
 
@@ -213,7 +213,7 @@
 
 <div id="help" class="hidden">
   <div class="tools">
-    <a id="helpPdf" href="Fuelpass-Odigos.pdf" download="Fuelpass-Odigos.pdf"><button style="width:100%">⬇ Οδηγός PDF</button></a>
+    <a id="helpPdf" href="Odigos.pdf" download="Steile-Apodeixi-Odigos.pdf"><button style="width:100%">⬇ Οδηγός PDF</button></a>
     <button id="helpClose" class="primary">✕ Κλείσιμο</button>
   </div>
   <iframe id="helpFrame" title="Οδηγός χρήσης"></iframe>
@@ -786,7 +786,7 @@
   function fileName() {
     const m = +$('month').value, y = +$('year').value;
     const sn = latin($('surname').value.trim()).replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '').toUpperCase();
-    return `Fuelpass_${y}-${String(m + 1).padStart(2, '0')}${sn ? '_' + sn : ''}.pdf`;
+    return `Apodeixi_${y}-${String(m + 1).padStart(2, '0')}${sn ? '_' + sn : ''}.pdf`;
   }
   async function buildPdf() {
     await (document.fonts ? document.fonts.ready : Promise.resolve());
@@ -795,7 +795,7 @@
     const pdf = new jsPDF({ unit: 'pt', format: [PW, PH()], compress: true });
     pdf.addImage(page.toDataURL('image/jpeg', 0.85), 'JPEG', 0, 0, PW, PH());
     const m = +$('month').value, y = +$('year').value;
-    pdf.setProperties({ title: `${SUBJECT() || 'Fuelpass'} ${MONTHS_LC[m]} ${y}`, subject: SUBJECT() });
+    pdf.setProperties({ title: `${SUBJECT() || 'Στείλε Απόδειξη'} ${MONTHS_LC[m]} ${y}`, subject: SUBJECT() });
     const blob = pdf.output('blob');
     return new File([blob], fileName(), { type: 'application/pdf' });
   }
@@ -948,7 +948,7 @@
 
   // ---------- Offline ----------
   // Bump on every release: shown in the header and used to detect updates.
-  const APP_VERSION = '2026.11.12-1';
+  const APP_VERSION = '2026.11.12-2';
   $('appVersion').textContent = '· v' + APP_VERSION;
   // An installed app is often resumed rather than reloaded, so when it comes back to the
   // foreground check whether a newer version is published and offer to reload.
